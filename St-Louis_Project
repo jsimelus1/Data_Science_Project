@@ -2,60 +2,61 @@
 
 
 # Boundaries Data
-1. Census Tracts boundaries of MO
-    https://www.census.gov/cgi-bin/geo/shapefiles/index.php?year=2022&layergroup=Census+Tracts
+# 1. Census Tracts boundaries of MO
+#     https://www.census.gov/cgi-bin/geo/shapefiles/index.php?year=2022&layergroup=Census+Tracts
 
 #    => This data is the most important for mapping the area of interest, containing boundaries at the Census Tract level for the entire state of Missouri. From this dataset, I will only use the values for St. Louis County and the city.
-----------------------------------------------------------------------
+### ----------------------------------------------------------------------
 
 # Demographic
-2. population (2022)
-    https://data.census.gov/table/ACSST5Y2022.S0101?g=050XX00US29189$1400000,29510$1400000
+# 2. population (2022)
+#    https://data.census.gov/table/ACSST5Y2022.S0101?g=050XX00US29189$1400000,29510$1400000
 
 #    => To view my analysis from a demographic perspective, this dataset, like the boundary data mentioned above, contains population data at the Census Tract level.
 
-3. Household income & monthly housing cost
-    https://data.census.gov/map/050XX00US29189$1400000,29510$1400000/ACSST5Y2022/S2506?t=Housing%20Value%20and%20Purchase%20Price&layer=VT_2022_140_00_PY_D1&loc=38.6402,-90.5440,z7.9085
+# 3. Household income & monthly housing cost
+#    https://data.census.gov/map/050XX00US29189$1400000,29510$1400000/ACSST5Y2022/S2506?t=Housing%20Value%20and%20Purchase%20Price&layer=VT_2022_140_00_PY_D1&loc=38.6402,-90.5440,z7.9085
 
  #   => This dataset also primarily includes income and monthly housing prices, but to avoid the averaging error that may arise from using the mean, I plan to use the median values for each.
-----------------------------------------------------------------------
+### ----------------------------------------------------------------------
 
 # Traffic
-4. MetroLink Stations
-    https://data-metrostl.opendata.arcgis.com/datasets/cb5103b6e529476699c88d92b9e40627_0/explore
+# 4. MetroLink Stations
+#    https://data-metrostl.opendata.arcgis.com/datasets/cb5103b6e529476699c88d92b9e40627_0/explore
 
-4-1. Metro-Link Alignment
-    https://data-metrostl.opendata.arcgis.com/datasets/c4aee4a01cc044baa2dfdaca14676ced_0/explore?location=0.000929%2C89.878873%2C0.00
+    # 4-1. Metro-Link Alignment
+        #    https://data-metrostl.opendata.arcgis.com/datasets/c4aee4a01cc044baa2dfdaca14676ced_0/explore?location=0.000929%2C89.878873%2C0.00
 
  #   => The subway stations and links mentioned above are key data for this project, and they will be used to observe the differences between areas in St. Louis that are served by the subway and those that are not.
 
-5. Roads
-    from osmnx
+#5. Roads
+from osmnx
 
  #   => Unlike the other datasets, this data is obtained from a package and is used to display roads on the map.
 
-6. Traffic counts
-    https://rdx.stldata.org/dataset/traffic-counts/resource/4a164e63-9987-413d-af11-5775559cd8a9#{}
+# 6. Traffic counts
+#    https://rdx.stldata.org/dataset/traffic-counts/resource/4a164e63-9987-413d-af11-5775559cd8a9
 
 #    => This dataset contains traffic counts for St. Louis, storing detailed information about areas with heavy traffic congestion. It allows for analysis by peak time, day, and even month, and will be used to identify areas prone to noise pollution.
-----------------------------------------------------------------------
+### ----------------------------------------------------------------------
 
 
-========= Preview my story =========
+### ========= Preview my story =========
 
-'''
-Through this analysis, I hope to uncover the relationship between heavy traffic flow and the presence or absence of public transportation, particularly focusing on how subways can contribute to reducing noise pollution. Furthermore, I aim to analyze how demographic factors, such as population, income levels, and housing prices, influence noise pollution and subway availability, and how these factors relate to the urban environment. The ultimate goal is to provide valuable insights that could guide policy improvements to address noise pollution effectively.
+###
+# Through this analysis, I hope to uncover the relationship between heavy traffic flow and the presence or absence of public transportation, particularly focusing on how subways can contribute to reducing noise pollution. Furthermore, 
+# I aim to analyze how demographic factors, such as population, income levels, and housing prices, influence noise pollution and subway availability, and how these factors relate to the urban environment. The ultimate goal is to provide valuable insights 
+# that could guide policy improvements to address noise pollution effectively.
 
+# The audience will be: 
 
-The audience will be: 
+# The primary audience for this analysis includes urban planners, public policymakers, environmental health researchers, and city transportation officials. Additionally, community stakeholders who are concerned about urban noise pollution, such as local residents 
+# and advocacy groups, may also find this study valuable.
 
-The primary audience for this analysis includes urban planners, public policymakers, environmental health researchers, and city transportation officials. Additionally, community stakeholders who are concerned about urban noise pollution, such as local residents and advocacy groups, may also find this study valuable.
-
-Value Derived from the Story: 
-
-Urban planners and policymakers will gain insights into the relationship between traffic, public transportation, and noise pollution, which can help in designing effective urban development policies and transportation strategies to reduce noise pollution. Environmental health researchers can use the findings to further explore the health implications of noise pollution in urban areas. Local residents and advocacy groups will better understand how demographic factors and infrastructure, such as subway systems, can impact their daily noise exposure, potentially encouraging informed community engagement and advocacy for improved public transportation options.
-
-''' 
+# Value Derived from the Story: 
+# Urban planners and policymakers will gain insights into the relationship between traffic, public transportation, and noise pollution, which can help in designing effective urban development policies and transportation strategies to reduce noise pollution. 
+# Environmental health researchers can use the findings to further explore the health implications of noise pollution in urban areas. Local residents and advocacy groups will better understand how demographic factors and infrastructure, such as subway systems, 
+# can impact their daily noise exposure, potentially encouraging informed community engagement and advocacy for improved public transportation options.
 
 # Import packages
 
@@ -95,8 +96,8 @@ from pathlib import Path
 import json
 
 # 1. Load boundaries of Missouri (Census tracts) Esepcially, St.Louis area
-# load boundaries of Missouri
 
+# load boundaries of Missouri
 file_Path_boundaries = 'temp/census_tract/tl_2022_29_tract.shp'
 
 # load saved file
@@ -105,15 +106,12 @@ interest = gpd.read_file(str(file_Path_boundaries))
 # 2. Load population status of St. Louis city and county (Census tracts)  
 
 # load the population data
-
 file_path_population = 'data/pop_2022.csv'
-
 pop_place = pd.read_csv(file_path_population)
 
 # 3. Load metro station and links in St.Louis
 
 # load metro stations
-
 file_path_station = 'temp/metro_station.geojson'
 
 # load metro links
@@ -124,7 +122,6 @@ station = gpd.read_file(str(file_path_station))
 link    = gpd.read_file(str(file_path_link))
 
 # 4. Load and save St. Louis roads data From `osmn` library.
-
 places = ["St. Louis, Missouri, USA",         # St. Louis city
           "St. Louis County, Missouri, USA"]  # St. Louis county
 
@@ -137,81 +134,62 @@ ox.save_graphml(G, filepath = "temp/st_louis_network.graphml")
 
 # re-load road data
 G = ox.load_graphml(filepath="temp/st_louis_network.graphml")
-
 edges = ox.graph_to_gdfs(G, nodes=False, edges=True)
 
 # 6. Load income  
-
 file_path_income = 'data/income_median.csv'
-
 income = pd.read_csv(file_path_income)
 
 # 7. Load housing cost
-
 file_path_house = 'data/household_income_monthl_housingcost.csv'
-
 housing = pd.read_csv(file_path_house)
 
 # 8. Load traffic
-
 file_path_traffic = 'temp/traffic.geojson'
-
 traffic = gpd.read_file(str(file_path_traffic))
 
 # Step 4: Vet the Data Sources
 
 # 1. Boundaries  
 # This is the most important dataset in this project and needs to be subsetted to include only the St. Louis area.
-
 interest.head()
 
 # check missing value
-
 print(interest.isnull().sum())
 
 # This data incude total 115 Census tracts, but I need only two of them, St. Louis city and county.
-
 len(interest.COUNTYFP.unique())
 
 # 2. Population
 
 # In case of population, I would like to use only Total population but the data looks like need to some data carpentary.
-
 pop_place.head()
 
 # check information
-
 pop_place.info()
 
 # missing vlaue check
-
 print(pop_place.isnull().sum())
 
 # check population statistics
-
 pop_place.S0101_C01_001E.describe()
 
 # For the population data, I will use only the frist column, Estimate!!Total!!Total population. 
 # 3. Metro station and links. This data might play a significant role to check my story.
 
 # 3-1. Metro station
-
 station.head()
 
 # There are 38 stations in St. Louis.
-
 len(station)
 
 # missing vlaue check
-
 print(station.isnull().sum())
 
 # 3-2. Metro links
-
 link.head()
 
 # 4. Roads. maxspeed depends on highway type
-
 edges.head()
 edges.info()
 len(edges)
@@ -223,7 +201,8 @@ maxspeed_flat = edges['maxspeed'].explode()
 unique_maxspeeds = maxspeed_flat.unique()
 print(unique_maxspeeds)
 
-# For an initial consideration, I thought of using speed limits as a factor for noise pollution. I reasoned that if the speed limit is high, vehicles would likely drive at that speed, which would contribute to noise pollution. However, the speed limits are not high enough to adequately represent noise pollution. Therefore, I will use this road data to display only the major road conditions on the map.
+# For an initial consideration, I thought of using speed limits as a factor for noise pollution. I reasoned that if the speed limit is high, vehicles would likely drive at that speed, which would contribute to noise pollution. However, the speed limits are not 
+# high enough to adequately represent noise pollution. Therefore, I will use this road data to display only the major road conditions on the map.
 
 # types of roads
 highway_flat = edges['highway'].explode()
@@ -235,7 +214,6 @@ print(unique_highway)
 # I will use these categories: **motorway, motorway_link, secondary, secondary_link, primary, primary_link, trunk, trunk_link**
 
 # 5. Income. This data will be processed for use.
-
 income.head()
 income = income.transpose()
 income.head()
@@ -243,7 +221,6 @@ income.head()
 # There are many levels of income that I can use individually, but for this project, I will only use the median income.
 
 # 6. Housing. This data also will be processed for use.
-
 housing.head()
 housing = housing.transpose()
 housing.head()
@@ -252,39 +229,36 @@ housing.head()
 
 # 7. Traffic
 
-# 1. **OBJECTID**: A unique identifier for each row, used to identify records in the database.
-# 2. **Onstreet**: The name of the main road where traffic volume is measured.
-# 3. **Atstreet**: The name of the cross street or nearby street at the intersection.
-# 4. **Month**: Represents the month when the traffic volume was measured.
-# 5. **Bridge_ID**: A unique identifier for a bridge, if applicable.
-# 6. **DirFrom**: Indicates the direction in which vehicles are traveling.
-# 7. **LocationID**: A unique ID for the specific measurement location.
-# 8. **PkHrVol**: The traffic volume (number of vehicles) during peak hours.
-# 9. **Max24HrDay**: The day with the highest traffic volume in a 24-hour period.
-# 10. **PkHrDay**: The day with the highest traffic volume during peak hours.
-# 11. **PkHrTime**: The time range during which the peak hour occurred.
-# 12. **PkHrAMPM**: Indicates whether the peak hour occurred in the morning (AM) or afternoon (PM).
-# 13. **Month2**: Additional column for month information, if applicable.
-# 14. **AWT**: Represents the Average Weekday Traffic.
-# 15. **Max24HrVol**: The maximum traffic volume recorded in a 24-hour period.
-# 16. **YearTxt**: The year when the traffic volume was measured.
-# 17. **Year**: The year when the traffic volume was measured.
-# 18. **last_edited_date**: The date when the data was last edited.
-# 19. **geometry**: Geographic information that includes location data.
+    # 1. **OBJECTID**: A unique identifier for each row, used to identify records in the database.
+    # 2. **Onstreet**: The name of the main road where traffic volume is measured.
+    # 3. **Atstreet**: The name of the cross street or nearby street at the intersection.
+    # 4. **Month**: Represents the month when the traffic volume was measured.
+    # 5. **Bridge_ID**: A unique identifier for a bridge, if applicable.
+    # 6. **DirFrom**: Indicates the direction in which vehicles are traveling.
+    # 7. **LocationID**: A unique ID for the specific measurement location.
+    # 8. **PkHrVol**: The traffic volume (number of vehicles) during peak hours.
+    # 9. **Max24HrDay**: The day with the highest traffic volume in a 24-hour period.
+    # 10. **PkHrDay**: The day with the highest traffic volume during peak hours.
+    # 11. **PkHrTime**: The time range during which the peak hour occurred.
+    # 12. **PkHrAMPM**: Indicates whether the peak hour occurred in the morning (AM) or afternoon (PM).
+    # 13. **Month2**: Additional column for month information, if applicable.
+    # 14. **AWT**: Represents the Average Weekday Traffic.
+    # 15. **Max24HrVol**: The maximum traffic volume recorded in a 24-hour period.
+    # 16. **YearTxt**: The year when the traffic volume was measured.
+    # 17. **Year**: The year when the traffic volume was measured.
+    # 18. **last_edited_date**: The date when the data was last edited.
+    # 19. **geometry**: Geographic information that includes location data.
 
 traffic.head()
 
 # (1) Month: Represents the month when the traffic volume was measured. => Traffic jams often occurred in September.
-
 traffic.Month.value_counts().head()
 
 # (2) Max24HrDay: The day with the highest traffic volume in a 24-hour period. => Friday, Wednesday, and Thursday are the peak days.
-
 traffic.Max24HrDay.value_counts().head()
 traffic.PkHrDay.value_counts().head()
 
 # (4) PkHrTime: The time range during which the peak hour occurred. => The peak hours are 5PM and 4PM.
-
 traffic.PkHrTime.value_counts().head()
 
 # Based on this, I have decided to use only the data for the main peak days—Wednesday, Thursday, and Friday—as well as the peak times of 4 PM and 5 PM, and the months of March, August, September, and October.
@@ -294,27 +268,26 @@ traffic.PkHrTime.value_counts().head()
 ### Perform your data carpentry that helps in your story telling here.
 
 # **Contents**  
-# 1. Subset St.Louis city and county     
-# 2. Population  
- # 2-1. Merge data (boundaries + population = interest)  
- # 2-2. Save data as GeoJSON  
- # 2-3. Cartography with population    
- # 2-4. Combined Visualization  
-# 3. Roads  
-# 4. Income (Median)     
-# 5. Housing (Median)   
-# 6. Merge income and housing costs  
- # 6-1. Correlation between 'Median_housing_cost' and 'Median_income'  
- # 6-2. Add coord from boundaries data (Income + boundaries = finance_boundary)  
- # 6-3. Save as GeoJSON  
- # 6-4. Cartography with finance_boundary  
-# 7. Traffic
+    # 1. Subset St.Louis city and county     
+    # 2. Population  
+        # 2-1. Merge data (boundaries + population = interest)  
+        # 2-2. Save data as GeoJSON  
+        # 2-3. Cartography with population    
+        # 2-4. Combined Visualization  
+    # 3. Roads  
+    # 4. Income (Median)     
+    # 5. Housing (Median)   
+    # 6. Merge income and housing costs  
+        # 6-1. Correlation between 'Median_housing_cost' and 'Median_income'  
+        # 6-2. Add coord from boundaries data (Income + boundaries = finance_boundary)  
+        # 6-3. Save as GeoJSON  
+        # 6-4. Cartography with finance_boundary  
+    # 7. Traffic
 
 # 1. Subset St.Louis city and county  
 The area of interest is St. Louis, so I selected only St. Louis City (189) and County (510).
 
 # subset St.Louis city, and county
-
 interest_boundaries = interest[interest['COUNTYFP'].isin(['189',   # St.Louis city
                                                           '510'])] # St.Louis county 
 interest_boundaries.head()
@@ -339,7 +312,6 @@ pop_place = pop_place.rename(columns = {'Estimate!!Total!!Total population': 'To
 
 # convert data type from object to int
 pop_place.Total_population = pop_place.Total_population.astype(int)
-
 pop_place.head()
 
 # 2-1. Merge data (boundaries + population = interest_pop)  
@@ -356,11 +328,9 @@ interest_pop.head()
 # The file is no longer a geoJSON because it was merged with a regular CSV file. It needs to be saved again as a geoJSON after making the changes.
 
 # save the merge file as GeoJSON
-
 interest_pop.to_file('temp/interest_pop.geojson', driver='GeoJSON')
 
 # re-load the saved merge file 
-
 local_file_name = 'interest_pop.geojson'
 file_Path  = Path('temp/')                  # set path
 file_Path /= local_file_name
@@ -371,7 +341,6 @@ interest_pop = gpd.read_file(str(file_Path))
 # 2-3. Cartography with population
 
 # The colors were assigned based on the population status
-
 colormap = linear.OrRd_03.scale(
     interest_pop.Total_population.min(), # minimum value
     interest_pop.Total_population.max()) # maximum value
@@ -383,7 +352,6 @@ colormap
 
 population_dict = interest_pop.set_index('NAME')['Total_population']
 population_dict.head()
-
 m = folium.Map([38.6270, -90.1994], tiles = 'CartoDB Positron', zoom_start = 10)
 
 # style function
@@ -417,13 +385,13 @@ colormap.add_to(m)                                 # add legend
 m
 
 # 3. Roads  
-# Since this road data is not suitable for predicting noise pollution based on speed limits, it will be used to represent road conditions on the map. Displaying all roads might be too complex for the audience, so I will only include highways, main roads, and roads with high traffic volumes where congestion might occur.
+# Since this road data is not suitable for predicting noise pollution based on speed limits, it will be used to represent road conditions on the map. Displaying all roads might be too complex for the audience, so I will only include highways, main roads, 
+# and roads with high traffic volumes where congestion might occur.
 edges.head(3)
 
 # I'm going to use these categories: **'motorway', 'motorway_link', 'secondary', 'secondary_link', 'primary', 'primary_link', 'trunk', 'trunk_link'**
 
 # highway type
-
 highway = edges[edges['highway'].isin(['motorway', 'motorway_link', 
                                        'secondary', 'secondary_link', 
                                        'primary', 'primary_link', 
@@ -581,7 +549,6 @@ traffic.head()
 traffic_filter = traffic[(traffic['Month'].isin(['3', '8', '9', '10']))&\
                          (traffic['Max24HrDay'].isin(['Wed', 'Thu', 'Fri']))&\
                          (traffic['PkHrTime'].isin(['4:00', '5:00']))]
-
 len(traffic_filter)
 
 m = folium.Map([38.6270, -90.1994],           # center
@@ -743,18 +710,28 @@ m
 
 ## Step 7 - Conclusion: Tell the Story
 
-'''
-My story focuses on understanding how traffic congestion, which is one of the factors contributing to noise pollution, is influenced by public transportation, income levels, and population size. 
-The reason I believe that traffic congestion can lead to noise pollution is that heavy traffic, with increased vehicle movement and frequent honking, is likely to cause noise pollution. I considered buses and subways as forms of public transportation. However, since buses operate on roads and are not free from traffic congestion, I considered subways, which can transport many people at once without contributing to traffic, as the sole public transportation mode in this analysis. Additionally, demographic factors such as population size, income levels, and monthly housing costs were added to the analysis to understand how they influence noise pollution and the presence of subways. The purpose of this study is to understand the relationship between demographic factors, public transportation, and traffic congestion, providing insights for improving urban planning policies.
+# My story focuses on understanding how traffic congestion, which is one of the factors contributing to noise pollution, is influenced by public transportation, income levels, and population size. 
+# The reason I believe that traffic congestion can lead to noise pollution is that heavy traffic, with increased vehicle movement and frequent honking, is likely to cause noise pollution. I considered buses and subways as forms of public transportation. 
+# However, since buses operate on roads and are not free from traffic congestion, I considered subways, which can transport many people at once without contributing to traffic, as the sole public transportation mode in this analysis. Additionally, demographic 
+# factors such as population size, income levels, and monthly housing costs were added to the analysis to understand how they influence noise pollution and the presence of subways. The purpose of this study is to understand the relationship between demographic 
+# factors, public transportation, and traffic congestion, providing insights for improving urban planning policies.
 
-The two cartography heatmaps represent traffic congestion counts, where the color changes from green to yellow to red as the counts increase. It can be observed that as population and income increase, the colors of the census tracts become more intense. Population is shown changing from yellow to red, while income changes from light blue to dark blue. Roads are displayed in gray, and public transportation, specifically subway stations and lines, is represented in black.
+# The two cartography heatmaps represent traffic congestion counts, where the color changes from green to yellow to red as the counts increase. It can be observed that as population and income increase, the colors of the census tracts become more intense. 
+# Population is shown changing from yellow to red, while income changes from light blue to dark blue. Roads are displayed in gray, and public transportation, specifically subway stations and lines, is represented in black.
 
-As a conclusion of this project, it was observed that areas with a higher population tend to experience more frequent traffic congestion during peak times, and these areas were mostly located in suburban areas rather than urban centers. One intuitive finding through cartography is that areas with subway access tend to have less traffic congestion. In other words, subways contribute to reducing traffic congestion to some extent, and it can be said that noise pollution caused by traffic congestion is less likely to occur. Additionally, it can be stated that people living in urban areas are less exposed to noise pollution caused by traffic congestion during peak times. Looking at income levels, higher-income individuals tend to reside in suburban areas. The conclusion here is that higher-income individuals are more likely to own cars, so there is no need for them to live in urban areas with subway access. On the other hand, lower-income individuals may find it more convenient to live in urban areas with public transportation. Therefore, it can be said that people with higher income levels are more exposed to noise pollution during peak times compared to those with lower income levels.
+# As a conclusion of this project, it was observed that areas with a higher population tend to experience more frequent traffic congestion during peak times, and these areas were mostly located in suburban areas rather than urban centers. One intuitive finding 
+# through cartography is that areas with subway access tend to have less traffic congestion. In other words, subways contribute to reducing traffic congestion to some extent, and it can be said that noise pollution caused by traffic congestion is less likely 
+# to occur. Additionally, it can be stated that people living in urban areas are less exposed to noise pollution caused by traffic congestion during peak times. Looking at income levels, higher-income individuals tend to reside in suburban areas. 
+# The conclusion here is that higher-income individuals are more likely to own cars, so there is no need for them to live in urban areas with subway access. On the other hand, lower-income individuals may find it more convenient to live in urban areas with 
+# public transportation. Therefore, it can be said that people with higher income levels are more exposed to noise pollution during peak times compared to those with lower income levels.
 
-In summary, three key conclusions can be drawn. First, higher-income individuals tend to prefer living in suburban areas rather than urban centers with well-established public transportation. As a result, people living in suburban areas are more likely to be exposed to noise pollution during peak times. Second, based on the 0.72 correlation between income levels and monthly housing costs, the fact that higher-income individuals live in suburban areas suggests that subways do not have a significant impact on monthly housing costs. Lastly, since people living in suburban areas already own cars, it is uncertain whether simply extending subway lines to suburban areas would effectively reduce traffic congestion.
+# In summary, three key conclusions can be drawn. First, higher-income individuals tend to prefer living in suburban areas rather than urban centers with well-established public transportation. As a result, people living in suburban areas are more likely to be 
+# exposed to noise pollution during peak times. Second, based on the 0.72 correlation between income levels and monthly housing costs, the fact that higher-income individuals live in suburban areas suggests that subways do not have a significant impact on monthly 
+# housing costs. Lastly, since people living in suburban areas already own cars, it is uncertain whether simply extending subway lines to suburban areas would effectively reduce traffic congestion.
 
-Based on these conclusions, the suggestion or improvement I would propose is that rather than simply expanding subway lines to reduce noise pollution caused by traffic congestion during peak times, the main solution should be eliminating peak times altogether. For example, by staggering the working hours of businesses located in areas where traffic congestion frequently occurs during peak times, it is expected that peak times could be sufficiently avoided.
+# Based on these conclusions, the suggestion or improvement I would propose is that rather than simply expanding subway lines to reduce noise pollution caused by traffic congestion during peak times, the main solution should be eliminating peak times altogether. 
+# For example, by staggering the working hours of businesses located in areas where traffic congestion frequently occurs during peak times, it is expected that peak times could be sufficiently avoided.
 
-The limitation of this project is that while the population, subway, income, and monthly housing costs data are from 2022, the traffic count data is from 2014 to 2020, resulting in a time gap of about 10 years. This time gap could significantly impact data interpretation, making it necessary to use more up-to-date data. Additionally, since traffic count data for St. Louis City is unavailable, it is not possible to discuss the relationship between noise pollution and public transportation in that area. Lastly, this project focuses solely on St. Louis, but since people from nearby areas such as St. Charles and Chesterfield also commute to St. Louis, additional regional analysis is required.
-
-'''
+# The limitation of this project is that while the population, subway, income, and monthly housing costs data are from 2022, the traffic count data is from 2014 to 2020, resulting in a time gap of about 10 years. This time gap could significantly impact data 
+# interpretation, making it necessary to use more up-to-date data. Additionally, since traffic count data for St. Louis City is unavailable, it is not possible to discuss the relationship between noise pollution and public transportation in that area. 
+# Lastly, this project focuses solely on St. Louis, but since people from nearby areas such as St. Charles and Chesterfield also commute to St. Louis, additional regional analysis is required.
