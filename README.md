@@ -1,6 +1,7 @@
 Welcome to the Data_Science_Project repository.
 
 This repository serves as a comprehensive collection of independent data science projects, each housed within its own Git branch.
+
 The goal of this structure is to demonstrate a broad range of data analysis, modeling, and storytelling skills while keeping each project self-contained for clarity and reproducibility.
 
 Repository Structure
