@@ -9,11 +9,11 @@ Repository Structure
           Each project branch focuses on a distinct analytical domain or dataset.
           Switch branches in the GitHub interface to explore the contents of each project.
           
-                  Branch 	                    Project Focus  	                                        Description  
-                  Real_Estate 	          Housing Market Analytics  	                              Examines real estate pricing dynamics, feature correlations, and regression modeling for predictive valuation.
-                  Chicago_Crime 	          Urban Crime Data Analysis  	                              Explores crime trends in Chicago, performing spatial-temporal analysis and building predictive insights using public datasets.
-                  St-Louis_Traffic 	          Transportation & Traffic Insights  	                    Investigates traffic patterns in St. Louis, integrating weather, location, and time-based variables to model congestion behavior.
-                  Suicide 	                    Mental Health & Risk Prediction  	                    Analyzes suicide statistics and potential socioeconomic or demographic correlates, employing machine learning for early-risk identification.
+                  Branch 	                   Project Focus  	                                 Description  
+                  Real_Estate 	         Housing Market Analytics  	                       Examines real estate pricing dynamics, feature correlations, and regression modeling for predictive valuation.
+                  Chicago_Crime 	         Urban Crime Data Analysis  	                       Explores crime trends in Chicago, performing spatial-temporal analysis and building predictive insights using public datasets.
+                  St-Louis_Traffic 	         Transportation & Traffic Insights  	             Investigates traffic patterns in St. Louis, integrating weather, location, and time-based variables to model congestion behavior.
+                  Suicide 	                   Mental Health & Risk Prediction  	             Analyzes suicide statistics and potential socioeconomic or demographic correlates, employing machine learning for early-risk identification.
 
 How to Navigate the Repository
 
