@@ -1,7 +1,5 @@
 # Sentiment Analysis of Reddit Users
 
-Final Data Science Project
-
 This repository contains a two-part project that performs sentiment analysis on Reddit user data, demonstrating the full data science workflow from raw text extraction to machine-learning-based sentiment classification.
 
 The analysis showcases skills in natural language processing (NLP), text cleaning, feature engineering, and supervised learning, using Python and open-source data science tools.
