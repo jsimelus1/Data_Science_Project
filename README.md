@@ -1,49 +1,57 @@
-# Welcome to the Data Science Project repository.
+# Sentiment Analysis of Reddit Users
 
-This repository serves as a comprehensive collection of independent data science projects, each housed within its own Git branch.
+Final Data Science Project
 
-The goal of this structure is to demonstrate a broad range of data analysis, modeling, and storytelling skills while keeping each project self-contained for clarity and reproducibility.
+This repository contains a two-part project that performs sentiment analysis on Reddit user data, demonstrating the full data science workflow from raw text extraction to machine-learning-based sentiment classification.
 
-## Repository Structure
+The analysis showcases skills in natural language processing (NLP), text cleaning, feature engineering, and supervised learning, using Python and open-source data science tools.
 
-Each project branch focuses on a distinct analytical domain or dataset.
-Switch branches in the GitHub interface to explore the contents of each project.
+### Repository Contents
+          File                                        Description
+          1) Final-Project-Part-I.ipynb               Data acquisition and preprocessing. Connects to Reddit’s API, scrapes posts/comments, and performs text cleaning—removing stopwords, punctuation, emojis, and links. Includes exploratory data analysis (EDA) on word frequency and sentiment distribution.
+          2) Final-Project-Part-II.ipynb              Model training and evaluation. Implements machine learning models (e.g., Logistic Regression, Naive Bayes, and/or BERT-based classifiers) to predict sentiment labels (positive, negative, neutral). Evaluates model accuracy, precision, recall, and confusion matrices.
           
-          Branch                    Project Focus                              Description
-          Real_Estate               Housing Market Analytics                   Examines real estate pricing dynamics, feature correlations, and regression modeling for predictive valuation.
-          Chicago_Crime             Urban Crime Data Analysis                  Explores crime trends in Chicago, performing spatial-temporal analysis and building predictive insights using public datasets.
-          St-Louis_Traffic          Transportation & Traffic Insights          Investigates traffic patterns in St. Louis, integrating weather, location, and time-based variables to model congestion behavior.
-          Suicide                   Mental Health & Risk Prediction            Analyzes suicide statistics and potential socioeconomic or demographic correlates, employing machine learning for early-risk identification.
+### Project Objectives
+          - Collect and Prepare Text Data from Reddit users using the Pushshift or PRAW API.
+          - Explore Linguistic Patterns to understand public sentiment and keyword trends.
+          - Develop and Evaluate Models that classify text sentiment effectively.
+          - Visualize and Interpret Results to provide actionable insights on user attitudes or topics.
 
-## How to Navigate the Repository
+### Methods and Workflow
+#### Data Extraction: 
+          - Retrieve Reddit posts/comments from selected subreddits or search queries.
+#### Text Preprocessing:
+          - Tokenization, stopword removal, lemmatization
+          - Handling of URLs, emojis, and punctuation
 
-1. Click the Branch dropdown menu (top-left on the repository page).
-2. Select the branch of the project you wish to view.
-3. Each branch includes:
-   - A primary Jupyter notebook with full analysis and narrative.
-   - Supporting datasets or CSV files (if applicable).
-   - Python scripts for data cleaning or modeling.
-   - A project-specific README or documentation.
+#### EDA and Visualization:
+          - Word clouds and frequency plots
+          - Sentiment score distributions
 
-## Common Tools and Libraries
+#### Modeling:
+          - Classical models (Logistic Regression, Naive Bayes, SVM)
+          - Optionally fine-tuned transformer models (e.g., BERT)
 
-Each project leverages tools commonly used in data science and analytics, including:
-   - Python 3.x
-   - Pandas, NumPy, Matplotlib, Seaborn, Plotly
-   - Scikit-learn, StatsModels
-   - Jupyter Notebook for analysis and storytelling
-   - Git and GitHub for version control and collaboration
+#### Evaluation:
+          - Accuracy, Precision, Recall, F1-score, and ROC-AUC
+          - Comparison of model performance
 
-## Learning & Research Objectives
+### Tools and Technologies
+          Category                    Libraries / Frameworks
+          Core Python                 pandas, numpy, re, json
+          NLP                         nltk, textblob, vaderSentiment, transformers, scikit-learn
+          Visualization               matplotlib, seaborn, wordcloud, plotly
+          Environment                 jupyter, nbstripout
+          APIs                        praw (Python Reddit API Wrapper), requests
 
-   - Across these projects, the emphasis is on:
-   - Developing reproducible data analysis workflows.
-   - Applying machine learning algorithms for classification and prediction.
-   - Interpreting results in the context of public health, housing, and urban systems.
-   - Communicating insights effectively through code and visualization.
+### Expected Outcomes
+          - A cleaned and structured Reddit text dataset.
+          - Sentiment classification models capable of identifying tone and polarity.
+          - Visualization of sentiment trends by topic, user group, or subreddit.
+          - A reproducible end-to-end pipeline for social media sentiment analysis.
 
-## Maintainer
-
-   - James Simelus
-   - Data Scientist | IT Infracstruture Administrator | IT Systems Engineer
-   - Columbia, Missouri
+### Learning Objectives
+          - Apply NLP preprocessing techniques to real-world social data.
+          - Implement and evaluate supervised learning models on textual data.
+          - Interpret and communicate machine learning results effectively.
+          - Explore ethical considerations in social media data collection and sentiment inference.
