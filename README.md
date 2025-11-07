@@ -1,4 +1,4 @@
-Welcome to the Data_Science_Project repository.
+Welcome to the Data Science Project repository.
 
 This repository serves as a comprehensive collection of independent data science projects, each housed within its own Git branch.
 
@@ -9,7 +9,7 @@ Repository Structure
 Each project branch focuses on a distinct analytical domain or dataset.
 Switch branches in the GitHub interface to explore the contents of each project.
           
-          Branch                    Project Focus                              Description  
+          Branch                    Project Focus                              Description
           Real_Estate               Housing Market Analytics                   Examines real estate pricing dynamics, feature correlations, and regression modeling for predictive valuation.
           Chicago_Crime             Urban Crime Data Analysis                  Explores crime trends in Chicago, performing spatial-temporal analysis and building predictive insights using public datasets.
           St-Louis_Traffic          Transportation & Traffic Insights          Investigates traffic patterns in St. Louis, integrating weather, location, and time-based variables to model congestion behavior.
