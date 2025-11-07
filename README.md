@@ -1,10 +1,10 @@
-Welcome to the Data Science Project repository.
+# Welcome to the Data Science Project repository.
 
 This repository serves as a comprehensive collection of independent data science projects, each housed within its own Git branch.
 
 The goal of this structure is to demonstrate a broad range of data analysis, modeling, and storytelling skills while keeping each project self-contained for clarity and reproducibility.
 
-Repository Structure
+## Repository Structure
 
 Each project branch focuses on a distinct analytical domain or dataset.
 Switch branches in the GitHub interface to explore the contents of each project.
@@ -15,7 +15,7 @@ Switch branches in the GitHub interface to explore the contents of each project.
           St-Louis_Traffic          Transportation & Traffic Insights          Investigates traffic patterns in St. Louis, integrating weather, location, and time-based variables to model congestion behavior.
           Suicide                   Mental Health & Risk Prediction            Analyzes suicide statistics and potential socioeconomic or demographic correlates, employing machine learning for early-risk identification.
 
-How to Navigate the Repository
+## How to Navigate the Repository
 
 1. Click the Branch dropdown menu (top-left on the repository page).
 2. Select the branch of the project you wish to view.
@@ -25,7 +25,7 @@ How to Navigate the Repository
    - Python scripts for data cleaning or modeling.
    - A project-specific README or documentation.
 
-Common Tools and Libraries
+## Common Tools and Libraries
 
 Each project leverages tools commonly used in data science and analytics, including:
    - Python 3.x
@@ -34,7 +34,7 @@ Each project leverages tools commonly used in data science and analytics, includ
    - Jupyter Notebook for analysis and storytelling
    - Git and GitHub for version control and collaboration
 
-Learning & Research Objectives
+## Learning & Research Objectives
 
    - Across these projects, the emphasis is on:
    - Developing reproducible data analysis workflows.
@@ -42,7 +42,7 @@ Learning & Research Objectives
    - Interpreting results in the context of public health, housing, and urban systems.
    - Communicating insights effectively through code and visualization.
 
-Maintainer
+## Maintainer
 
    - James Simelus
    - Data Scientist | IT Infracstruture Administrator | IT Systems Engineer
